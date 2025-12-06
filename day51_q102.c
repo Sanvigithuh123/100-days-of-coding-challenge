@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int ceil_index(int a[], int n, int x) {
     int l = 0, r = n - 1, ans = -1;
@@ -13,11 +14,13 @@ int ceil_index(int a[], int n, int x) {
 int main() {
     int n, i, x;
     if (scanf("%d", &n) != 1) return 0;
-    int a[n];
+    int *a = malloc(n * sizeof(int));
+
     for (i = 0; i < n; i++) scanf("%d", &a[i]);
     scanf("%d", &x);
 
     printf("%d", ceil_index(a, n, x));
+    free(a);
     return 0;
 }
 
